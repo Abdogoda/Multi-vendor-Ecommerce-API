@@ -185,12 +185,11 @@ The database consists of the following tables:
 You can now use the API endpoints as described in the routes section. Make sure to include appropriate headers for authentication and content type in your requests.
 
 ## 📸🖼️ Swagger Documentation
-![Screenshot 2024-09-11 183414](https://github.com/user-attachments/assets/98e48602-361a-4aba-9792-8995fcdea598)
+![Screenshot 2024-09-14 025119](https://github.com/user-attachments/assets/33d76555-eaf1-4288-8557-e5943a2aef7e)
 ![Screenshot 2024-09-14 025331](https://github.com/user-attachments/assets/afd036e4-955b-41a2-bb9e-90b94e506494)
 ![Screenshot 2024-09-14 025232](https://github.com/user-attachments/assets/4b45920a-6978-47cd-ac8c-b486d80dc88a)
 ![Screenshot 2024-09-14 025210](https://github.com/user-attachments/assets/8b00b2e3-7793-4689-953d-5a94d4d5030c)
 ![Screenshot 2024-09-14 025150](https://github.com/user-attachments/assets/2648434a-a8e0-43de-99b9-6ffb52fa6e2b)
-![Screenshot 2024-09-14 025119](https://github.com/user-attachments/assets/33d76555-eaf1-4288-8557-e5943a2aef7e)
 
 To provide a comprehensive overview of the API endpoints and their functionalities, we use Swagger for API documentation. Below are some screenshots of the Swagger documentation:
 
