@@ -22,6 +22,7 @@ This project provides a comprehensive API for a multi-vendor eCommerce platform,
 - **MySQL**: Database management system.
 - **JWT Authentication**: For secure API access.
 - **Google OAuth**: For social login integration.
+- **Payment 3rd Party Integration**: For complete order payment via (Visa Card | Online Card | Mobile Wallet).
 
 ## 🗂 Database Schema
 
