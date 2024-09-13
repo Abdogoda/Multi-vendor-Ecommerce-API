@@ -1,66 +1,211 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Here's a professional and styled README file for your Laravel API multi-vendor eCommerce project. I've included emojis and formatted text to make it engaging and easy to read.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+---
 
-## About Laravel
+# 📦 Laravel Multi-Vendor eCommerce API
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Welcome to the **Laravel Multi-Vendor eCommerce API** project! This is a robust and scalable API designed for a multi-vendor eCommerce platform built with Laravel. Whether you're a developer or a tech enthusiast, this README will guide you through understanding and getting started with the project.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Overview
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+This project provides a comprehensive API for a multi-vendor eCommerce platform, allowing multiple vendors to list products, manage orders, and handle payments. Customers can browse products, place orders, and manage their profiles.
 
-## Learning Laravel
+## 🛠 Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **User Management**: Registration, login, and profile management for admins, vendors, and customers.
+- **Vendor Management**: Manage vendor profiles, products, and payment methods.
+- **Product Management**: CRUD operations for products, including product images and tags.
+- **Order Management**: Handle customer orders, including checkout and payment processes.
+- **Category and Tag Management**: Manage product categories and tags.
+- **Payment Integration**: Support for various payment methods with integration options.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 📜 Technologies Used
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Laravel**: The PHP framework used for building the API.
+- **MySQL**: Database management system.
+- **JWT Authentication**: For secure API access.
+- **Google OAuth**: For social login integration.
 
-## Laravel Sponsors
+## 🗂 Database Schema
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+The database consists of the following tables:
 
-### Premium Partners
+- **Users**: `email`, `phone`, `first_name`, `last_name`, `password`, `address`, `profile_image`, `role`, `status`
+- **Vendors**: `shop_email`, `shop_phone`, `shop_name_en`, `shop_name_ar`, `shop_address`, `shop_logo`, `description`
+- **Categories**: `name_en`, `name_ar`, `slug`, `description`, `icon`, `image`, `parent_id`
+- **Tags**: `name_en`, `name_ar`
+- **Products**: `name_en`, `name_ar`, `main_image`, `price`, `stock`, `description`, `category_id`, `vendor_id`, `status`
+- **Product Images**: `product_id`, `image`
+- **Product Tag**: `product_id`, `tag_id`
+- **Payment Methods**: `name`, `description`, `status`, `icon`
+- **Vendor Payment Method**: `vendor_id`, `payment_method_id`, `identifier`, `integration_id`
+- **Orders**: `user_id`, `payment_method_id`, `total_amount`, `order_date`, `shipping_address`
+- **Order Products**: `order_id`, `product_id`, `price`, `quantity`
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## 🔗 API Routes
 
-## Contributing
+### Auth Routes
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- **Guest Routes**:
+  - `POST /auth/login`: Login
+  - `POST /auth/register/customer`: Register Customer
+  - `POST /auth/register/vendor`: Register Vendor
+  - `POST /auth/password/forgot`: Forgot Password
+  - `POST /auth/password/reset`: Reset Password
+  - `POST /auth/otp/send`: Send OTP
+  - `POST /auth/otp/verify`: Verify OTP
+  - `GET /auth/google/redirect`: Google Login
+  - `GET /auth/google/callback`: Google Callback
 
-## Code of Conduct
+- **Authenticated Routes**:
+  - `POST /auth/refresh-token`: Refresh Token
+  - `POST /auth/logout`: Logout
+  - `GET /auth/profile`: View Profile
+  - `POST /auth/profile`: Update Profile
+  - `PATCH /auth/profile/vendor`: Update Vendor Profile
+  - `POST /auth/password/change`: Change Password
+  - `POST /auth/users/{user}/activate-account`: Activate Account (Admin Only)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Customer Routes
 
-## Security Vulnerabilities
+- `GET /customers`: List Customers
+- `GET /customers/{customer}`: View Customer Details
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Customer Order Routes
 
-## License
+- `GET /customer/orders/{order}/checkout`: Checkout
+- `GET /customer/orders/payment/callback`: Payment Callback
+- `GET /customer/orders`: List Orders
+- `POST /customer/orders`: Create Order
+- `GET /customer/orders/{order}`: View Order Details
+- `PATCH /customer/orders/{order}`: Update Order
+- `DELETE /customer/orders/{order}`: Delete Order
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Vendor Routes
+
+- `GET /vendors`: List Vendors
+- `GET /vendors/{vendor}`: View Vendor Details
+- `GET /vendors/{vendor}/products`: List Vendor Products
+- `GET /vendors/{vendor}/payment_methods`: List Vendor Payment Methods
+
+### Payment Methods Routes
+
+- `GET /payment_methods`: List Payment Methods
+- `GET /payment_methods/{paymentMethod}`: View Payment Method Details
+- `POST /payment_methods`: Create Payment Method (Admin Only)
+- `PATCH /payment_methods/{paymentMethod}`: Update Payment Method (Admin Only)
+- `DELETE /payment_methods/{paymentMethod}`: Delete Payment Method (Admin Only)
+
+### Vendor Payment Methods Routes
+
+- `POST /vendor-profile/payment_methods`: Manage Vendor Payment Methods
+- `POST /vendor-profile/orders`: Manage Vendor Orders
+
+### Tag Routes
+
+- `GET /tags`: List Tags
+- `GET /tags/{tag}`: View Tag Details
+- `POST /tags`: Create Tag (Admin/Vendor Only)
+- `PATCH /tags/{tag}`: Update Tag (Admin Only)
+- `DELETE /tags/{tag}`: Delete Tag (Admin Only)
+
+### Category Routes
+
+- `GET /categories`: List Categories
+- `GET /categories/{category}`: View Category Details
+- `POST /categories`: Create Category (Vendor/Admin Only)
+- `PATCH /categories/{category}`: Update Category (Admin Only)
+- `DELETE /categories/{category}`: Delete Category (Admin Only)
+
+### Product Routes
+
+- `GET /products`: List Products
+- `GET /products/{product}`: View Product Details
+- `POST /products`: Create Product (Vendor Only)
+- `PATCH /products/{product}`: Update Product (Vendor Only)
+- `DELETE /products/{product}`: Delete Product (Vendor Only)
+- `POST /products/{product}/images/add`: Add Product Images
+- `POST /products/{product}/images/delete`: Delete Product Images
+- `POST /products/{product}/tags/update`: Update Product Tags
+
+### Admin Routes
+
+- `GET /admins`: List Admins
+- `GET /admins/{admin}`: View Admin Details
+- `POST /admins`: Create Admin
+
+## 🛠 Installation
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone https://github.com/yourusername/your-repository.git
+   ```
+
+2. **Navigate to the Project Directory:**
+
+   ```bash
+   cd your-repository
+   ```
+
+3. **Install Dependencies:**
+
+   ```bash
+   composer install
+   ```
+
+4. **Set Up Environment File:**
+
+   Copy `.env.example` to `.env` and configure your database and other environment variables.
+
+   ```bash
+   cp .env.example .env
+   ```
+
+5. **Generate Application Key:**
+
+   ```bash
+   php artisan key:generate
+   ```
+
+6. **Run Migrations:**
+
+   ```bash
+   php artisan migrate
+   ```
+
+7. **Start the Development Server:**
+
+   ```bash
+   php artisan serve
+   ```
+
+## 📚 Usage
+
+You can now use the API endpoints as described in the routes section. Make sure to include appropriate headers for authentication and content type in your requests.
+
+## 💡 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or fix.
+3. Make your changes and test thoroughly.
+4. Submit a pull request with a clear description of your changes.
+
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## 📬 Contact
+
+For questions or support, please reach out to [your-email@example.com](mailto:your-email@example.com).
+
+## 🙏 Acknowledgements
+
+- [Laravel](https://laravel.com/) for the amazing framework.
+- [Google OAuth](https://developers.google.com/identity) for authentication.
+
+---
+
+Feel free to customize any sections as needed, and good luck with your project!
