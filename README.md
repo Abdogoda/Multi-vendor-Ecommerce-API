@@ -1,6 +1,3 @@
-Certainly! Including screenshots of Swagger documentation can greatly enhance the readability and usability of your README, especially for those who want a visual guide to your API endpoints. Here’s how you can integrate a section for Swagger documentation screenshots into your README:
-
----
 
 # 📦 Laravel Multi-Vendor eCommerce API
 
@@ -211,13 +208,9 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 📬 Contact
 
-For questions or support, please reach out to [your-email@example.com](mailto:your-email@example.com).
+For questions or support, please reach out to [abdogoda0a@gmail.com](mailto:abdogoda0a@gmail.com).
 
 ## 🙏 Acknowledgements
 
 - [Laravel](https://laravel.com/) for the amazing framework.
 - [Google OAuth](https://developers.google.com/identity) for authentication.
-
----
-
-Feel free to customize the placeholder image paths (`docs/swagger-ui.png`, `docs/swagger-auth-routes.png`, `docs/swagger-product-routes.png`) with the actual paths where you store your screenshots. Also, make sure to update the live Swagger documentation URL as per your local or production setup.
