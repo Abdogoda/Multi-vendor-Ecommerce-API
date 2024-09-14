@@ -17,6 +17,7 @@ This project provides a comprehensive API for a multi-vendor eCommerce platform,
 - **Job Scheduling**: Implemented job queues for efficient email dispatch and execution of time-consuming tasks.
 - **Multi-Language Support**: Supported both Arabic and English for data handling, user interface, and error messages.
 - **Email Management**: Configured SMTP for sending well-structured, formatted emails to users.
+- **Swagger Documentation**: Built Swagger documentation for all end points to test them in live interface.
 - **Vendor Management**: Manage vendor profiles, products, and payment methods.
 - **Product Management**: CRUD operations for products, including product images and tags.
 - **Order Management**: Handle customer orders, including checkout and payment processes.
