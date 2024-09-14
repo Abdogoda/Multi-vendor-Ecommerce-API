@@ -9,12 +9,18 @@ This project provides a comprehensive API for a multi-vendor eCommerce platform,
 
 ## 🛠 Features
 
-- **User Management**: Registration, login, and profile management for admins, vendors, and customers.
+- **Authentication**: Utilized OAuth JWT for secure authentication, and integrated Google OAuth for seamless login and registration.
+- **Multi-Role Authentication**: Facilitated distinct access levels for customers, admins, and vendors.
+- **Payment Integration**: Implemented Paymob for secure payment processing.
+- **OTP Verification**: Enabled OTP for account verification, password reset, and security checks.
+- **Caching: Employed** caching to enhance data retrieval performance and reduce server load.
+- **Job Scheduling**: Implemented job queues for efficient email dispatch and execution of time-consuming tasks.
+- **Multi-Language Support**: Supported both Arabic and English for data handling, user interface, and error messages.
+- **Email Management**: Configured SMTP for sending well-structured, formatted emails to users.
 - **Vendor Management**: Manage vendor profiles, products, and payment methods.
 - **Product Management**: CRUD operations for products, including product images and tags.
 - **Order Management**: Handle customer orders, including checkout and payment processes.
 - **Category and Tag Management**: Manage product categories and tags.
-- **Payment Integration**: Support for various payment methods with integration options.
 
 ## 📜 Technologies Used
 
